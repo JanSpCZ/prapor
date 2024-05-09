@@ -1,0 +1,554 @@
+@font-face {
+    font-family: "roboto";
+    src: url(fonts/Roboto-Regular.ttf);
+}
+@font-face {
+    font-family: "roboto-bold";
+    src: url(fonts/Roboto-Bold.ttf);
+}
+/*fonty jsou uložené ve složce "/fonts"*/
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+body {
+    min-height: 100vh;
+    font-family: "roboto";
+    overflow-x: hidden;
+}
+
+/*NAVIGAČNÍ MENU*/
+header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 30px 100px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 10000;
+}
+
+header .logo img {
+    width: 100px;
+}
+
+header ul {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+header ul li {
+    list-style-type: none;
+    margin-left: 20px;
+}
+
+header ul li a {
+    text-decoration: none;
+    padding: 10px 17px;
+    font-size: large;
+    color: #fff;
+    border-radius: 20px;
+    transition: .2s linear;
+}
+
+header ul li a:hover,
+header ul li .active {
+    background: #F9B000;
+    color: #162159;
+}
+
+/*PARALLAX POZADÍ HORNÍ ČÁST STRÁNKY*/
+section {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    padding: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    overflow: hidden;
+}
+
+section::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 100px;
+    background: linear-gradient(to top, #162159, transparent);
+    z-index: 1000;
+}
+
+section .jet {
+    width: auto;
+    position: absolute;
+    height: 50px;
+    top: 50%;
+    left: 0;
+    transform: translateX(300px);
+    z-index: 9;
+}
+
+section img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+#h1 {
+    position: absolute;
+    color: #fff;
+    white-space: nowrap;
+    font-size: 4vw;
+    z-index: 9;
+    transform: translateY(150px);
+}
+
+#front {
+    z-index: 10;
+}
+
+/*O PRAPORU*/
+.sec {
+    padding: 100px 150px;
+    width: 100%;
+    background: #162159;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+}
+
+/*NADPIS SEKCE*/
+.sec-head {
+    padding: 1.5rem 0;
+    border-bottom: 2px solid #b4b4b4;
+    max-width: 50%;
+}
+
+.sec h2 {
+    font-size: 37px;
+}
+
+.sec h2 span {
+    color: #F9B000;
+}
+
+.sec-content {
+    display: flex;
+    padding: 2rem;
+    justify-content: space-around;
+}
+
+.sec-content p {
+    font-size: large;
+    width: 30vw;
+    text-align: justify;
+    display: flex;
+    align-items: center;
+    padding: 1rem 2rem;
+    box-shadow: 0px 0px 0px 2px #F9B000;
+    border-radius: 10px;
+    transition: all .2s linear;
+}
+
+/*ROZOSTŘENÍ OKRAJŮ PŘI HOVERU*/
+.sec-content p:hover {
+    box-shadow: 0px 0px 25px 5px #F9B000;
+    border: none;
+}
+
+/*POHYBUJÍCÍ SE SKVRNA V POZADÍ STRÁNKY*/
+.blob {
+    position: absolute;
+    top: 20%;
+    left: 30%;
+    opacity: 0.5;
+    width: 400px;
+    aspect-ratio: 1/1;
+    animation: animate 8s cubic-bezier(0.68, -0.55, 0.27, 1.55) infinite alternate forwards;
+    filter: blur(40px);
+    z-index: -1;
+    translate: 0% 13%;
+    border-radius: 20% 71% 47% 70% / 81% 15% 22% 54%;
+    rotate: 41deg;
+    scale: 1.15;
+    background: linear-gradient(
+      47deg,
+      rgb(118, 74, 166, 1) 21%,
+      rgb(0 164 173) 67%,
+      rgba(118, 74, 166, 1) 81%);
+}
+
+/*POHYBUJÍCÍ SE SKVRNA VPRAVO*/
+.right {
+    top: 70%;
+    left: 60%;
+}
+
+/*POHYBUJÍCÍ SE SKVRNA VLEVO*/
+.left {
+    top: 70%;
+    left: 20%;
+}
+
+/* PODNADPIS SEKCE  */
+.sub-head {
+    font-size: xx-large;
+    text-align: center;
+    margin-top: 50px;
+    margin-bottom: 30px;
+}
+
+.sec ul {
+    font-size: large;
+    width: 80%;
+    display: flex;
+    gap: 30px;
+    flex-direction: column;
+}
+
+/*FOTO HARMONIKA "O PRAPORU"*/
+.accordion-container {
+    width: 900px;
+    height: 500px;
+    align-self: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin: 50px 0;
+}
+
+.card {
+    height: 100%;
+    width: 30%;
+    border-radius: 15px;
+    cursor: pointer;
+    box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
+    overflow: hidden;
+    transition: all .15s linear;
+}
+
+.card:hover {
+    width: 100%;
+}
+
+.card .image {
+   width: 100%; 
+   height: 100%;
+   object-fit: cover;
+   filter: brightness(0.5);
+   transition: all .15s linear;
+}
+
+.card:hover .image {
+    transform: scale(1.2);
+    filter: brightness(1);
+}
+
+/*STRUKTURA RADIOTECHNICKÉHO PRAPORU*/
+.mar-top {
+    margin-top: 80px;
+}
+
+.structure-container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 3rem;
+    gap: 3rem;
+}
+
+.stab,
+.rota {
+    width: 150px;
+    height: 150px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 1em;
+    font-size: large;
+    background-color: #1e2d79;
+    color: #fff;
+    cursor: pointer;
+    border-radius: 50%;
+    transition: all .2s linear;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+.rota-container {
+    width: 100%;
+    display: flex;
+    margin-top: 50px;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.rota-full,
+.stab-full {
+    position: relative;
+}
+
+.rota-full span,
+.stab-full span {
+    position: absolute;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin: 2em 0;
+    padding: 1em;
+    background-color: #F9B000;
+    border-radius: 20px;
+    color: #162159;
+    transition: opacity .2s linear;
+    opacity: 0;
+}
+
+.rota-full span::before,
+.stab-full span::before {
+    content: "";
+    width: 10px;
+    height: 10px;
+    position: absolute;
+    top: -5px;
+    background: #F9B000;
+    left: 50%;
+    transform: translateX(-50%) rotate(45deg);
+}
+
+.rota-full:hover > span,
+.stab-full:hover > span {
+    opacity: 1;
+}
+
+.rota-full span:hover,
+.stab-full span:hover {
+    opacity: 0;
+}
+
+.rota {
+    width: 100px;
+    height: 100px;
+}
+
+.stab:hover,
+.rota:hover {
+    background-color: #F9B000;
+    color: #162159;
+    border-radius: 30px;
+} 
+
+/*FOTO PARALLAX POZADÍ UPROSTŘED STRÁNKY*/
+.parallax-background {
+    background-image: url(img/stred.jpg);
+    min-height: 400px;
+    width: 100%;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+/*OPERAČNÍ POŽADAVKY*/
+.oper-container {
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 2.2em;
+    gap: 100px;
+}
+
+.oper {
+    padding: 2em 3em;
+    width: 50vw;
+    border-radius: 20px;
+    position: relative;
+}
+
+/* POZADÍ JEDNOTLIVÝCH SEKCÍ OPERAČNÍCH POŽADAVKŮ */
+.oper::before {
+    content: '';
+    position: absolute;
+    z-index: -1;
+    left: 5px;
+    top: 5px;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+      47deg,
+      rgba(118, 74, 166, 0.63) 21%,
+      rgba(0, 164, 173, 0.575) 67%,
+      rgba(118, 74, 166, 0.685) 81%);
+    filter: blur(30px);
+}
+
+/* KAŽDÝ DRUHÝ JE ZAROVNANÝ UPROSTŘED STRÁNKY */
+.oper:nth-child(even) {
+    align-self: flex-end;
+}
+
+/*KONTAKTY*/
+.closer {
+    padding-top: 10px;
+}
+
+.contacts-container {
+    max-width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-top: 6vh;
+    align-items: center;
+    color: #EEEEEE;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.card-container {
+    width: 320px;
+    height: 320px;
+    cursor: pointer;
+    perspective: 600px;
+    padding: 15px;
+}
+
+.card-container:hover > .card-contact {
+    transform: rotateY(180deg);
+}
+
+.card-contact {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    transition: transform .25s;
+    transform-style: preserve-3d;
+}
+
+.front,
+.back {
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    box-shadow: rgba(0, 0, 0, 0.09) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;
+    position: absolute;
+    backface-visibility: hidden;
+    padding: 1rem;
+}
+
+.back {
+    transform: rotateY(180deg);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    background: #F9B000;
+    color: #162159;
+    font-weight: 500;
+}
+
+.back ul {
+    list-style-type: none;
+    line-height: 10px;
+    width: 100%;
+}
+
+.front {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    gap: 20px;
+    font-size: 20px;
+    background: #1e2d79;
+    color: #EEEEEE;
+    font-weight: 700;
+}
+
+/********FOOTER ODKAZY********/
+.footer {
+    background-color: #e1e1e1;
+    padding: 40px 0;
+    width: 100%;
+}
+
+.footer .social {
+    text-align: center;
+    padding-bottom: 25px;
+    color: #4b4c4d;
+    font-size: large;
+}
+
+.footer ul {
+    margin-top: 0;
+    padding: 0;
+    list-style: none;
+    font-size: 18px;
+    line-height: 1.6;
+    margin-bottom: 0;
+    text-align: center;
+}
+
+.footer ul li {
+    display: inline-block;
+    padding: 0 15px;
+}
+
+.footer ul li a {
+    color: inherit;
+    text-decoration: none;
+    opacity: 0.8;
+}
+
+.footer ul li a:hover {
+    opacity: 1;
+}
+
+.footer .copyright {
+    margin-top: 15px;
+    text-align: center;
+    font-size: 15px;
+    color: #747474;
+}
+
+
+
+/*ANIMACE PRO SKVRNY V POZADÍ*/
+@keyframes animate {
+    0% {
+      translate: 40% -25%;
+      border-radius: 60% 40% 30% 70% / 100% 85% 92% 74%;
+    }
+    50% {
+      translate: 0% 13%;
+      border-radius: 20% 71% 47% 70% / 81% 15% 22% 54%;
+      rotate: 41deg;
+      scale: 1.3;
+    }
+    100% {
+      translate: -45% 39%;
+      border-radius: 100% 75% 92% 74% / 60% 80% 30% 70%;
+      rotate: -60deg;
+      scale: 1.05;
+    }
+  }  
